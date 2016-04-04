@@ -85,6 +85,8 @@
 
                     e.preventDefault();
                 }
+                selectedTreeElementsColor(); // added to call Status function for Module State Indicators
+
             });
         }
     };
