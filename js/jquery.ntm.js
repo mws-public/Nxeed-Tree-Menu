@@ -29,6 +29,7 @@
                 if (options.autoParentDetection) {
                     if (item.has('ul')[0]) {
                         item.addClass(options.parentClass);
+                        item.attr('id',"listId-"+num); //adds id to the expand/collapse button in tree structure
                     }
                 }
 
@@ -52,7 +53,10 @@
                         parent.addClass(options.activeClass);
                     }
                 }
-
+                
+                if(params){
+                    params.postRender(); //Added to call js function passed as param to ntm function
+                }
                 //Thinesh - Explicitly hide the code that children nodes are expanded automatically next refresh.
                 //if (parent.hasClass(options.selectedClass)) {
                     //parent.removeClass(options.activeClass).removeClass(options.collapseClass).addClass(options.expandClass);
@@ -85,8 +89,9 @@
 
                     e.preventDefault();
                 }
-                selectedTreeElementsColor(); // added to call Status function for Module State Indicators
-
+                if(params){
+                    params.postRender(); //Added to call js function passed as param to ntm function
+                }
             });
         }
     };
